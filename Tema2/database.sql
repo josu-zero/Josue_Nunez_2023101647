@@ -1,0 +1,12 @@
+CREATE DATABASE IF NOT EXISTS ganados;
+USE ganados;
+
+CREATE TABLE IF NOT EXISTS solicitudes (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nombre VARCHAR(100) NOT NULL,
+    correo VARCHAR(100) NOT NULL,
+    cel VARCHAR(30),
+    horario VARCHAR(50),
+    ganado VARCHAR(50),
+    creado_en TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);

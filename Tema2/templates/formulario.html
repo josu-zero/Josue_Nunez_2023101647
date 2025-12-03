@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Formulario de Contacto</title>
+    <link rel="stylesheet" href="/static/style.css">
+</head>
+<body>
+<header class="hero small">
+    <div class="container">
+        <h1>Solicitar Información</h1>
+    </div>
+</header>
+
+<main class="container">
+    {% with messages = get_flashed_messages() %}
+      {% if messages %}
+        <div class="alerts">
+          {% for msg in messages %}
+            <div class="alert">{{ msg }}</div>
+          {% endfor %}
+        </div>
+      {% endif %}
+    {% endwith %}
+
+    <form action="/guardar" method="post" class="form">
+        <label>Nombre y Apellido
+            <input type="text" name="nombre" required>
+        </label>
+
+        <label>Correo
+            <input type="email" name="correo" required>
+        </label>
+
+        <label>Cel
+            <input type="text" name="cel">
+        </label>
+
+        <label>Horario para llamar
+            <input type="text" name="horario" placeholder="Ej: 9:00 - 12:00">
+        </label>
+
+        <label>Tipo de ganado
+            <select name="ganado">
+                <option value="Ternero">Ternero/a</option>
+                <option value="Novillito">Novillito</option>
+                <option value="Novillo">Novillo</option>
+                <option value="Vaquillona">Vaquillona</option>
+                <option value="Vaca">Vaca</option>
+                <option value="Toro">Toro</option>
+            </select>
+        </label>
+
+        <button type="submit" class="btn">Enviar</button>
+    </form>
+</main>
+
+<footer class="container footer">
+    <p>Los datos serán guardados en la base de datos (no se enviarán notificaciones aún).</p>
+</footer>
+</body>
+</html>
